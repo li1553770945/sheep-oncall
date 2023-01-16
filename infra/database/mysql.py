@@ -1,23 +1,14 @@
 from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy import create_engine
+
 from infra.config.config_loader import Config
 
 def database_provider(config:Config):
-    from sqlalchemy import (
-        create_engine,
-        Column,
-        Integer,
-        String,
-        Enum,
-        DECIMAL,
-        DateTime,
-        Boolean,
-        UniqueConstraint,
-        Index
-    )
+
 
     # 创建引擎
     engine = create_engine(
-        config.get("databse","dsn"),
+        config.get("database","dsn"),
         # 超过链接池大小外最多创建的链接
         max_overflow=0,
         # 链接池大小

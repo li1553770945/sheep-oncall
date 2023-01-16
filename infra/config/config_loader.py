@@ -16,7 +16,7 @@ class Config:
         return self.cfp.get(section, key)
 
 
-def config_provider(file="config.ini"):
+def config_provider(file):
     config = Config()
     config.read(file)
     return config
