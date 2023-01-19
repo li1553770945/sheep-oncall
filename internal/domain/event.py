@@ -1,3 +1,4 @@
+import json
 from enum import Enum
 
 
@@ -13,3 +14,7 @@ class Event:
         self.from_user_id = from_user_id
         self.to_user_id = to_user_id
         self.content = content
+        self.topic = ""
+
+    def __str__(self):
+        return json.dumps(self)
